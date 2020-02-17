@@ -1,41 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     class ArraySort
     {
-        public static int[] Bubble(int[] array)
+        public static void Swap(int[] array, int i, int j)
+        {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+
+        public static void BubbleSort(int[] array)
         {
             if (array == null || array.Length < 2)
-                return array;
+                return;
 
             while (true)
             {
-                bool flag = false;
+                bool tmp = false;
                 for (int i = 0; i < array.Length - 1; i++)
                 {
                     if (array[i] < array[i + 1])
                     {
-                        int temp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = temp;
-                        flag = true;
+                        Swap(array, i, i + 1);
+                        tmp = true;
                     }
                 }
-                if (!flag) break;
+                if (!tmp) break;
             }
-
-            return array;
         }
 
-        public static int[] Select(int[] array)
+        public static void SelectSort(int[] array)
         {
             if (array == null || array.Length < 2)
-                return array;
+                return;
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -44,14 +43,10 @@ namespace ConsoleApp1
                 {
                     if (array[max] < array[j])
                     {
-                        int temp = array[max];
-                        array[max] = array[j];
-                        array[j] = temp;
+                        Swap(array, max, j);
                     }
                 }
             }
-
-            return array;
         }
     }
 }
