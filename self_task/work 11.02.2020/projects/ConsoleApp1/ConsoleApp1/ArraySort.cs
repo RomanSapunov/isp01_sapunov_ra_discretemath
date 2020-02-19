@@ -18,16 +18,16 @@ namespace ConsoleApp1
 
             while (true)
             {
-                bool tmp = false;
+                bool swapDetected = false;
                 for (int i = 0; i < array.Length - 1; i++)
                 {
                     if (array[i] < array[i + 1])
                     {
                         Swap(array, i, i + 1);
-                        tmp = true;
+                        swapDetected = true;
                     }
                 }
-                if (!tmp) break;
+                if (!swapDetected) break;
             }
         }
 
